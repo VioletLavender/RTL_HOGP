@@ -84,6 +84,10 @@ uint8_t gateTimeline = 0;
 //#pragma Otime
 #pragma Ospace
 
+//Advertising parameters
+#define ADV_INTERVAL_MIN       160U       //160*0.625ms=100ms
+#define ADV_INTERVAL_MAX       160U       //160*0.625ms=100ms
+
 
 //Target BD_ADDR (eg: 1CBA8C20C501, SensorTag)
 #define TARGET_ADDR0  0x01
@@ -106,6 +110,8 @@ uint8_t gateTimeline = 0;
 #define SCAN_INTERVAL              10U    //10*0.625ms=6.25ms
 
 //Initial Connection Parameters
+#define CONN_INTERVAL_MIN          38U    //38*1.25ms=47.5ms
+#define CONN_INTERVAL_MAX          42U    //42*1.25ms=52.5ms
 #define CONN_SUPERVISION_TIMEOUT   60U    //60*10ms=600ms
 #define CONN_SLAVE_LATENCY         0U     //0~499, 0 means slave listen at every anchor point
 
@@ -273,7 +279,14 @@ void Ble_Master_Init(void)
     setBLE_ConnCreate(peerAddr_Param,SET_SCAN_PARA,SET_CONN_PARA);
 }
 
-
+//void Ble_Reset(void)
+//{
+//    /* reset BLE HW/SW */
+//    //MCU re-start from main()
+//    SYS_UnlockReg();
+//    SYS_ResetChip();
+//    SYS_LockReg();
+//}
 
 void Ble_Initial(uint8_t role)  //0: slave, 1: master, 2: both(1, 2 not support yet)
 {
@@ -590,7 +603,7 @@ static void BleEvent_Callback(BleCmdEvent event, void* param)
     case BLECMD_EVENT_PHY_UPDATE_COMPLETE:
     {
         BLE_Event_Phy_Update_Param *phy = (BLE_Event_Phy_Update_Param *)param;
-        printf("STATUS: %d, TX PHY: %d, RX PHY: %d\n", phy->status, phy->phyParam.tx_Phy, phy->phyParam.tx_Phy);
+        printf("STATUS: %d, TX PHY: %d, RX PHY: %d\n",phy->status,phy->phyParam.tx_Phy, phy->phyParam.rx_Phy);
     }
     break;
 

@@ -44,5 +44,3 @@
 .\objects\profile_tab.o: ..\..\..\include\ble_att_gatt.h
 .\objects\profile_tab.o: ..\..\..\include\ble_serviceDef.h
 .\objects\profile_tab.o: ..\..\..\include\blestack_status.h
-.\objects\profile_tab.o: ..\inc\user.h
-.\objects\profile_tab.o: ..\..\..\include\ble_cmd.h

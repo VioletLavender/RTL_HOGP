@@ -355,7 +355,7 @@ ARM Macro Assembler    Page 6
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=.\objects\startup_mm32f032xx_s_keil.d -o.\objects\startup_mm32f032
 xx_s_keil.o -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --pr
-edefine="__UVISION_VERSION SETA 531" --list=.\listings\startup_mm32f032xx_s_kei
+edefine="__UVISION_VERSION SETA 533" --list=.\listings\startup_mm32f032xx_s_kei
 l.lst ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm\startup_MM32
 F032xx_s_KEIL.s
 
